@@ -15,6 +15,6 @@
 
 ## Configuration for this application
 
-Fortunately, There is no configuration for this project apart from the flutter development setup on your computer.
+Fortunately, there is no configuration for this project apart from the flutter development setup on your computer.
 
 You've done entire steps correctly and I make sure that this project will have paramount effect on your progress learning `Flutter`
