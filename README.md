@@ -1,16 +1,20 @@
-# todo_app
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/iamnijat/task-manager/Flutter%20CI/master)
+![GitHub forks](https://img.shields.io/github/forks/iamnijat/task-manager)
+![GitHub stars](https://img.shields.io/github/stars/iamnijat/task-manager)
+![GitHub watchers](https://img.shields.io/github/watchers/iamnijat/task-manager)
+![GitHub contributors](https://img.shields.io/github/contributors/iamnijat/task-manager)
+![GitHub last commit](https://img.shields.io/github/last-commit/iamnijat/task-manager)
+![GitHub top language](https://img.shields.io/github/languages/top/iamnijat/task-manager)
 
-A new Flutter project.
+# Flutter Task Manager Applicatiton
 
-## Getting Started
+![preview](https://user-images.githubusercontent.com/42466886/140480241-c2ffdb22-24ba-4259-8ebb-94b8af690a91.png)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+-------
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Configuration for this application
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Fortunately, There is no configuration for this project apart from the flutter development setup on your computer.
+
+You've done entire steps correctly and I make sure that this project will have paramount effect on your progress learning `Flutter`
