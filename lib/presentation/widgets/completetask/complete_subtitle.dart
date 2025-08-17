@@ -3,7 +3,7 @@ import 'package:sizer/sizer.dart';
 
 class CompleteSubtitle extends StatelessWidget {
   const CompleteSubtitle({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -11,7 +11,7 @@ class CompleteSubtitle extends StatelessWidget {
     return Row(
       children: <Widget>[
         Padding(
-           padding: EdgeInsets.only(left: 15.2.w, top: 2.2.h),
+          padding: EdgeInsets.only(left: 15.2.w, top: 2.2.h),
           child: Text(
             "Your tasks for today\nare finished!",
             style: TextStyle(

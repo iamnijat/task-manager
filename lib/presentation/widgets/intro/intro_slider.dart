@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 
 class IntroSlider extends StatelessWidget {
   const IntroSlider({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

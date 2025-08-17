@@ -3,7 +3,7 @@ import 'package:sizer/sizer.dart';
 
 class IntroTitle extends StatelessWidget {
   const IntroTitle({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

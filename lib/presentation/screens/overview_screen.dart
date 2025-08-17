@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:todo_app/config/constants/palette.dart';
 import '../../logic/controllers/database_helper.dart';
+import '../../data/models/task.dart';
 import 'task_screen.dart';
 import 'task_completed_screen.dart';
 import '../widgets/overview/no_data_screen.dart';
@@ -14,7 +15,7 @@ import '../widgets/overview/slide_left_bacground.dart';
 import '../widgets/overview/task_bubble.dart';
 
 class OverviewScreen extends StatefulWidget {
-  const OverviewScreen({Key key}) : super(key: key);
+  const OverviewScreen({Key? key}) : super(key: key);
 
   @override
   _OverviewScreenState createState() => _OverviewScreenState();
@@ -42,13 +43,13 @@ class _OverviewScreenState extends State<OverviewScreen> {
         child: Column(
           children: <Widget>[
             const OverviewHeader(),
-            FutureBuilder(
+            FutureBuilder<List<Task>>(
                 initialData: const [],
                 future: _dbHelper.getTasks(),
                 builder: (context, snapshot) {
-                  return ProgressBar(snapshot.data.length);
+                  return ProgressBar(snapshot.data?.length ?? 0);
                 }),
-            FutureBuilder(
+            FutureBuilder<List<Task>>(
                 initialData: const [],
                 future: _dbHelper.getTasks(),
                 builder: (context, snapshot) {
@@ -60,7 +61,7 @@ class _OverviewScreenState extends State<OverviewScreen> {
                           left: 9.w,
                           top: 5.2.h,
                         ),
-                        child: OverviewTaskTitle(snapshot.data.length),
+                        child: OverviewTaskTitle(snapshot.data?.length ?? 0),
                       ),
                       Padding(
                           padding: EdgeInsets.only(right: 9.w, top: 5.2.h),
@@ -68,15 +69,15 @@ class _OverviewScreenState extends State<OverviewScreen> {
                     ],
                   );
                 }),
-            FutureBuilder(
+            FutureBuilder<List<Task>>(
                 initialData: const [],
                 future: _dbHelper.getTasks(),
                 // ignore: missing_return
                 builder: (context, snapshot) {
-                  if (snapshot.data.length != 0) {
+                  if (snapshot.hasData && snapshot.data!.isNotEmpty) {
                     return ListView.builder(
                         reverse: true,
-                        itemCount: snapshot.data.length,
+                        itemCount: snapshot.data!.length,
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemBuilder: (context, index) => Dismissible(
@@ -84,12 +85,13 @@ class _OverviewScreenState extends State<OverviewScreen> {
                               resizeDuration:
                                   const Duration(milliseconds: 1300),
                               onDismissed: (direction) async {
-                                if (snapshot.data[index].id != 0) {
+                                if (snapshot.data![index].id != null &&
+                                    snapshot.data![index].id != 0) {
                                   await _dbHelper
-                                      .deleteTask(snapshot.data[index].id);
+                                      .deleteTask(snapshot.data![index].id!);
 
                                   setState(() {
-                                    if (snapshot.data.length <= 1) {
+                                    if (snapshot.data!.length <= 1) {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
@@ -98,7 +100,7 @@ class _OverviewScreenState extends State<OverviewScreen> {
                                     }
                                   });
                                 }
-                                snapshot.data.removeAt(index);
+                                snapshot.data!.removeAt(index);
                               },
                               background: const SlideLeftBackground(),
                               key: UniqueKey(),
@@ -117,7 +119,7 @@ class _OverviewScreenState extends State<OverviewScreen> {
                                       context: context,
                                       builder: (BuildContext context) {
                                         return TaskScreen(
-                                          task: snapshot.data[index],
+                                          task: snapshot.data![index],
                                         );
                                       },
                                     ).then(
@@ -127,8 +129,9 @@ class _OverviewScreenState extends State<OverviewScreen> {
                                     );
                                   },
                                   child: TaskBubble(
-                                    title: snapshot.data[index].title,
-                                    desc: snapshot.data[index].description,
+                                    title: snapshot.data![index].title ?? '',
+                                    desc:
+                                        snapshot.data![index].description ?? '',
                                     color: colors[random.nextInt(5)],
                                   )),
                             ));

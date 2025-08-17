@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 
 class NoDataScreen extends StatelessWidget {
   const NoDataScreen({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -24,9 +24,9 @@ class NoDataScreen extends StatelessWidget {
             ),
           ),
         ),
-         ElasticIn(
-           duration: const Duration(seconds: 3),
-           child: Padding(
+        ElasticIn(
+          duration: const Duration(seconds: 3),
+          child: Padding(
             padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 1.5.h),
             child: Text(
               "You are the happiest person in the world because you have no tasks for now",
@@ -38,8 +38,8 @@ class NoDataScreen extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-                 ),
-         ),
+          ),
+        ),
       ],
     );
   }

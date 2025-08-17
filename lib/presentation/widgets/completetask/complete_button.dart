@@ -5,7 +5,7 @@ import '../../screens/overview_screen.dart';
 
 class CompleteButton extends StatelessWidget {
   const CompleteButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

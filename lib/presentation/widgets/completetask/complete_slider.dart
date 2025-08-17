@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 
 class CompleteSlider extends StatelessWidget {
   const CompleteSlider({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class CompleteSlider extends StatelessWidget {
           "assets/images/completepicture.svg",
           alignment: Alignment.center,
           fit: BoxFit.fitWidth,
-           height: 38.2.h,
+          height: 38.2.h,
         ),
       ),
     );

@@ -3,7 +3,7 @@ import 'package:sizer/sizer.dart';
 
 class OverviewTaskTitle extends StatelessWidget {
   final int taskCount;
-  const OverviewTaskTitle(this.taskCount, {Key key}) : super(key: key);
+  const OverviewTaskTitle(this.taskCount, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

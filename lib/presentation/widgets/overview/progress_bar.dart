@@ -4,7 +4,7 @@ import 'package:sizer/sizer.dart';
 
 class ProgressBar extends StatelessWidget {
   final int taskCount;
-  const ProgressBar(this.taskCount, {Key key}) : super(key: key);
+  const ProgressBar(this.taskCount, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +18,12 @@ class ProgressBar extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: taskCount == 0 ? const Color.fromRGBO(253, 87, 76, 1).withOpacity(0.2) : Colors.greenAccent.withOpacity(0.2),
+              color: taskCount == 0
+                  ? const Color.fromRGBO(253, 87, 76, 1).withOpacity(0.2)
+                  : Colors.greenAccent.withOpacity(0.2),
               spreadRadius: 5,
               blurRadius: 7,
-              offset: const Offset(0, 3), 
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -48,7 +50,9 @@ class ProgressBar extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontFamily: "Poppins"),
                     ),
-                    progressColor: taskCount == 0 ? const Color.fromRGBO(253, 87, 76, 1) : Colors.greenAccent,
+                    progressColor: taskCount == 0
+                        ? const Color.fromRGBO(253, 87, 76, 1)
+                        : Colors.greenAccent,
                     circularStrokeCap: CircularStrokeCap.round,
                   ),
                 ),
@@ -67,7 +71,9 @@ class ProgressBar extends StatelessWidget {
                             ),
                       ),
                       TextSpan(
-                        text: taskCount == 0 ? "You can do it!" : "You've done it!",
+                        text: taskCount == 0
+                            ? "You can do it!"
+                            : "You've done it!",
                         style: TextStyle(
                           fontSize: 11.7.sp,
                           fontWeight: FontWeight.bold,

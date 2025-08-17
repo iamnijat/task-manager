@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class TaskBubble extends StatelessWidget {
-  final String title;
-  final String desc;
-  final Color color;
+  final String? title;
+  final String? desc;
+  final Color? color;
 
-  const TaskBubble({Key key, this.title, this.desc, this.color})
+  const TaskBubble({Key? key, this.title, this.desc, this.color})
       : super(key: key);
 
   @override
@@ -20,10 +20,10 @@ class TaskBubble extends StatelessWidget {
           color: color,
           boxShadow: [
             BoxShadow(
-              color: color.withOpacity(0.2),
+              color: color!.withOpacity(0.2),
               spreadRadius: 5,
               blurRadius: 7,
-              offset: const Offset(0, 3), 
+              offset: const Offset(0, 3),
             ),
           ],
         ),

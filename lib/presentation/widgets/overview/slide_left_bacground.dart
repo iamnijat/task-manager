@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SlideLeftBackground extends StatelessWidget {
   const SlideLeftBackground({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -23,8 +23,8 @@ class SlideLeftBackground extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(15),
-                      border:
-                          Border.all(color: Colors.grey.withAlpha(40), width: 2)),
+                      border: Border.all(
+                          color: Colors.grey.withAlpha(40), width: 2)),
                   padding: const EdgeInsets.only(top: 1, right: 3),
                   child: const Icon(
                     Icons.done_all_rounded,

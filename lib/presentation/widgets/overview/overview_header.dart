@@ -3,7 +3,7 @@ import 'package:sizer/sizer.dart';
 import '../../screens/task_screen.dart';
 
 class OverviewHeader extends StatefulWidget {
-  const OverviewHeader({Key key}) : super(key: key);
+  const OverviewHeader({Key? key}) : super(key: key);
 
   @override
   _OverviewHeaderState createState() => _OverviewHeaderState();

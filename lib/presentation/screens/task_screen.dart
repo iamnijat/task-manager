@@ -5,23 +5,24 @@ import '../../logic/controllers/database_helper.dart';
 import '../../data/models/task.dart';
 
 class TaskScreen extends StatefulWidget {
-  final Task task;
+  final Task? task;
 
-  const TaskScreen({Key key, @required this.task}) : super(key: key);
+  const TaskScreen({Key? key, required this.task}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _TaskScreenState createState() => _TaskScreenState();
 }
 
 class _TaskScreenState extends State<TaskScreen> {
   final DatabaseHelper _dbHelper = DatabaseHelper();
 
-  int _taskId = 0;
-  String _taskTitle = "";
-  String _taskDescription = "";
+  int? _taskId = 0;
+  String? _taskTitle = "";
+  String? _taskDescription = "";
 
-  FocusNode _titleFocus;
-  FocusNode _descriptionFocus;
+  FocusNode? _titleFocus;
+  FocusNode? _descriptionFocus;
 
   bool _descriptionVisible = false;
   @override
@@ -30,9 +31,9 @@ class _TaskScreenState extends State<TaskScreen> {
       // Set visibility to true
       _descriptionVisible = true;
 
-      _taskTitle = widget.task.title;
-      _taskDescription = widget.task.description;
-      _taskId = widget.task.id;
+      _taskTitle = widget.task?.title;
+      _taskDescription = widget.task?.description;
+      _taskId = widget.task?.id;
     }
 
     _titleFocus = FocusNode();
@@ -43,8 +44,8 @@ class _TaskScreenState extends State<TaskScreen> {
 
   @override
   void dispose() {
-    _titleFocus.dispose();
-    _descriptionFocus.dispose();
+    _titleFocus?.dispose();
+    _descriptionFocus?.dispose();
     super.dispose();
   }
 
@@ -66,21 +67,21 @@ class _TaskScreenState extends State<TaskScreen> {
                 if (value != "") {
                   // Check if the task is null
                   if (widget.task == null) {
-                    Task _newTask = Task(
+                    Task newTask = Task(
                       title: value,
                     );
-                    _taskId = await _dbHelper.insertTask(_newTask);
+                    _taskId = await _dbHelper.insertTask(newTask);
                     setState(() {
                       _descriptionVisible = true;
                       _taskTitle = value;
                     });
                   } else {
-                    await _dbHelper.updateTaskTitle(_taskId, value);
+                    await _dbHelper.updateTaskTitle(_taskId ?? 0, value);
                   }
-                  _descriptionFocus.requestFocus();
+                  _descriptionFocus?.requestFocus();
                 }
               },
-              controller: TextEditingController()..text = _taskTitle,
+              controller: TextEditingController()..text = _taskTitle ?? "",
               decoration: const InputDecoration(
                 prefixIcon: Icon(
                   Icons.title_rounded,
@@ -109,7 +110,8 @@ class _TaskScreenState extends State<TaskScreen> {
                 onSubmitted: (value) async {
                   if (value != "") {
                     if (_taskId != 0) {
-                      await _dbHelper.updateTaskDescription(_taskId, value);
+                      await _dbHelper.updateTaskDescription(
+                          _taskId ?? 0, value);
                       _taskDescription = value;
                     }
                   }
@@ -121,7 +123,8 @@ class _TaskScreenState extends State<TaskScreen> {
                     (route) => false,
                   );
                 },
-                controller: TextEditingController()..text = _taskDescription,
+                controller: TextEditingController()
+                  ..text = _taskDescription ?? "",
                 decoration: const InputDecoration(
                   prefixIcon: Icon(
                     Icons.description_outlined,

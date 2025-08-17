@@ -6,11 +6,9 @@ class DatabaseHelper {
   Future<Database> database() async {
     return openDatabase(
       join(await getDatabasesPath(), 'todo.db'),
-      // ignore: void_checks
       onCreate: (db, version) async {
         await db.execute(
             "CREATE TABLE tasks(id INTEGER PRIMARY KEY, title TEXT, description TEXT)");
-        return db;
       },
       version: 1,
     );
@@ -30,13 +28,22 @@ class DatabaseHelper {
 
   Future<void> updateTaskTitle(int id, String title) async {
     Database _db = await database();
-    await _db.rawUpdate("UPDATE tasks SET title = '$title' WHERE id = '$id'");
+    await _db.update(
+      'tasks',
+      {'title': title},
+      where: 'id = ?',
+      whereArgs: [id],
+    );
   }
 
   Future<void> updateTaskDescription(int id, String description) async {
     Database _db = await database();
-    await _db.rawUpdate(
-        "UPDATE tasks SET description = '$description' WHERE id = '$id'");
+    await _db.update(
+      'tasks',
+      {'description': description},
+      where: 'id = ?',
+      whereArgs: [id],
+    );
   }
 
   Future<List<Task>> getTasks() async {
@@ -52,6 +59,10 @@ class DatabaseHelper {
 
   Future<void> deleteTask(int id) async {
     Database _db = await database();
-    await _db.rawDelete("DELETE FROM tasks WHERE id = '$id'");
+    await _db.delete(
+      'tasks',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
   }
 }
