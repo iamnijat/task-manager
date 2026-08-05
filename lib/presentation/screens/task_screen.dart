@@ -7,11 +7,10 @@ import '../../data/models/task.dart';
 class TaskScreen extends StatefulWidget {
   final Task? task;
 
-  const TaskScreen({Key? key, required this.task}) : super(key: key);
+  const TaskScreen({super.key, required this.task});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _TaskScreenState createState() => _TaskScreenState();
+  State<TaskScreen> createState() => _TaskScreenState();
 }
 
 class _TaskScreenState extends State<TaskScreen> {
@@ -115,6 +114,8 @@ class _TaskScreenState extends State<TaskScreen> {
                       _taskDescription = value;
                     }
                   }
+                  // The awaits above can complete after this widget is gone.
+                  if (!context.mounted) return;
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(

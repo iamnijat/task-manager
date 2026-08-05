@@ -4,7 +4,7 @@ import 'package:sizer/sizer.dart';
 
 class ProgressBar extends StatelessWidget {
   final int taskCount;
-  const ProgressBar(this.taskCount, {Key? key}) : super(key: key);
+  const ProgressBar(this.taskCount, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,8 @@ class ProgressBar extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: taskCount == 0
-                  ? const Color.fromRGBO(253, 87, 76, 1).withOpacity(0.2)
-                  : Colors.greenAccent.withOpacity(0.2),
+                  ? const Color.fromRGBO(253, 87, 76, 1).withValues(alpha: 0.2)
+                  : Colors.greenAccent.withValues(alpha: 0.2),
               spreadRadius: 5,
               blurRadius: 7,
               offset: const Offset(0, 3),
@@ -36,7 +36,10 @@ class ProgressBar extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: CircularPercentIndicator(
-                    radius: 65.0,
+                    // percent_indicator 4.0 made `radius` a true radius instead
+                    // of a diameter, so this is half the pre-4.0 value of 65.0
+                    // to keep the indicator its original 65px across.
+                    radius: 32.5,
                     lineWidth: 7.0,
                     percent: 1,
                     animation: true,

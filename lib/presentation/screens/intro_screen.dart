@@ -7,7 +7,7 @@ import '../widgets/intro/intro_subtitle.dart';
 import '../widgets/intro/intro_title.dart';
 
 class IntroScreen extends StatefulWidget {
-  const IntroScreen({Key? key}) : super(key: key);
+  const IntroScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api

@@ -5,8 +5,8 @@ import 'package:sizer/sizer.dart';
 
 class CompleteSlider extends StatelessWidget {
   const CompleteSlider({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

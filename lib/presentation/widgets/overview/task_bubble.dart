@@ -7,8 +7,7 @@ class TaskBubble extends StatelessWidget {
   final String? desc;
   final Color? color;
 
-  const TaskBubble({Key? key, this.title, this.desc, this.color})
-      : super(key: key);
+  const TaskBubble({super.key, this.title, this.desc, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class TaskBubble extends StatelessWidget {
           color: color,
           boxShadow: [
             BoxShadow(
-              color: color!.withOpacity(0.2),
+              color: color!.withValues(alpha: 0.2),
               spreadRadius: 5,
               blurRadius: 7,
               offset: const Offset(0, 3),

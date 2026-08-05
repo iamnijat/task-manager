@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/presentation/screens/task_screen.dart';
 
- pageTransition() {
-  return PageRouteBuilder(
+PageRouteBuilder<void> pageTransition() {
+  return PageRouteBuilder<void>(
     pageBuilder: (context, animation, secondaryAnimation) => const TaskScreen(
       task: null,
     ),

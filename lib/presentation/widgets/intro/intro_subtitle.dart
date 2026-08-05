@@ -4,8 +4,8 @@ import 'package:sizer/sizer.dart';
 
 class IntroSubtitle extends StatelessWidget {
   const IntroSubtitle({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -4,8 +4,8 @@ import 'package:sizer/sizer.dart';
 
 class CompleteTitle extends StatelessWidget {
   const CompleteTitle({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

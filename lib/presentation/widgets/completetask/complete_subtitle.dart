@@ -3,8 +3,8 @@ import 'package:sizer/sizer.dart';
 
 class CompleteSubtitle extends StatelessWidget {
   const CompleteSubtitle({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

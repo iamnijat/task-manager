@@ -5,7 +5,7 @@ import '../widgets/completetask/complete_subtitle.dart';
 import '../widgets/completetask/complete_title.dart';
 
 class CompletedScreen extends StatefulWidget {
-  const CompletedScreen({Key? key}) : super(key: key);
+  const CompletedScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api

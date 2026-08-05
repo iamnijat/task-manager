@@ -16,8 +16,8 @@ class DatabaseHelper {
 
   Future<int> insertTask(Task task) async {
     int taskId = 0;
-    Database _db = await database();
-    await _db
+    final db = await database();
+    await db
         .insert('tasks', task.toMap(),
             conflictAlgorithm: ConflictAlgorithm.replace)
         .then((value) {
@@ -27,8 +27,8 @@ class DatabaseHelper {
   }
 
   Future<void> updateTaskTitle(int id, String title) async {
-    Database _db = await database();
-    await _db.update(
+    final db = await database();
+    await db.update(
       'tasks',
       {'title': title},
       where: 'id = ?',
@@ -37,8 +37,8 @@ class DatabaseHelper {
   }
 
   Future<void> updateTaskDescription(int id, String description) async {
-    Database _db = await database();
-    await _db.update(
+    final db = await database();
+    await db.update(
       'tasks',
       {'description': description},
       where: 'id = ?',
@@ -47,8 +47,8 @@ class DatabaseHelper {
   }
 
   Future<List<Task>> getTasks() async {
-    Database _db = await database();
-    List<Map<String, dynamic>> taskMap = await _db.query('tasks');
+    final db = await database();
+    List<Map<String, dynamic>> taskMap = await db.query('tasks');
     return List.generate(taskMap.length, (index) {
       return Task(
           id: taskMap[index]['id'],
@@ -58,8 +58,8 @@ class DatabaseHelper {
   }
 
   Future<void> deleteTask(int id) async {
-    Database _db = await database();
-    await _db.delete(
+    final db = await database();
+    await db.delete(
       'tasks',
       where: 'id = ?',
       whereArgs: [id],

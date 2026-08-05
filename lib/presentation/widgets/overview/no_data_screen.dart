@@ -5,8 +5,8 @@ import 'package:sizer/sizer.dart';
 
 class NoDataScreen extends StatelessWidget {
   const NoDataScreen({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -4,8 +4,8 @@ import '../../screens/overview_screen.dart';
 
 class FloatButton extends StatelessWidget {
   const FloatButton({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

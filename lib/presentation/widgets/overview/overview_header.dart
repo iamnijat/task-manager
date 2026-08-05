@@ -3,14 +3,14 @@ import 'package:sizer/sizer.dart';
 import '../../screens/task_screen.dart';
 
 class OverviewHeader extends StatefulWidget {
-  const OverviewHeader({Key? key}) : super(key: key);
+  const OverviewHeader({super.key});
 
   @override
-  _OverviewHeaderState createState() => _OverviewHeaderState();
+  State<OverviewHeader> createState() => _OverviewHeaderState();
 }
 
 class _OverviewHeaderState extends State<OverviewHeader> {
-  void _showModalBottomSheet(context) {
+  void _showModalBottomSheet(BuildContext context) {
     showModalBottomSheet(
       isScrollControlled: true,
       backgroundColor: Colors.white,
@@ -50,8 +50,8 @@ class _OverviewHeaderState extends State<OverviewHeader> {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color:
-                        const Color.fromRGBO(253, 87, 76, 1).withOpacity(0.3),
+                    color: const Color.fromRGBO(253, 87, 76, 1)
+                        .withValues(alpha: 0.3),
                     spreadRadius: 5,
                     blurRadius: 7,
                     offset: const Offset(0, 2),

@@ -15,10 +15,10 @@ import '../widgets/overview/slide_left_bacground.dart';
 import '../widgets/overview/task_bubble.dart';
 
 class OverviewScreen extends StatefulWidget {
-  const OverviewScreen({Key? key}) : super(key: key);
+  const OverviewScreen({super.key});
 
   @override
-  _OverviewScreenState createState() => _OverviewScreenState();
+  State<OverviewScreen> createState() => _OverviewScreenState();
 }
 
 class _OverviewScreenState extends State<OverviewScreen> {
